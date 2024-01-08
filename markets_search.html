@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Поиск по магазинам</title>
+		<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADMElEQVR4nO2Zy0uVQRTAf/YwIw0KygoS7CnUpkUuy7gVWREEPYQ2LRPc58oKKswIgwJ7YH9AW6EWUZuKMtqnlmTmIntAcNO6pd0YOB8chjvf/a53Rr10fzCI8505c854Zs6ZEcqUmbfsBIalNVJi7APSQFbaCCXEMSCjjI9aSXAU+J3D+JJw4Ii18gOl5EAjMKGMHQTWlYoDm4GvOYwnxoGVwHFgBXPMKuCtMvITUK++uxx4JX3D4sycsBB4ogyckLOfBA7o/ofAAuaAC8qIKdnEzMCBrOiaVfYC08qAcw65pA5MA4eYJdZIrEeTP5ZwKsaBLPBZ9lRw7qtJx4G1MbJTSrZS+iqt0BtXvxvdQTlsrZr5PY53SvYssAxoV31DQIul82Ao4xdZ2bUvwZjzjnCJWofI9am+N8DiEA6cUZNkJIHlYynwzGH8U6BK5NYDk+pba4jVf68muFLA2CpZaZPwfsnPDmV8RLfSPyxzeuOEUv4dWE6Y021CzXPSp/JHSvFVwnFdzfPAl1JzNv8RpX+BjYRjh3LAzLnah9LTSqkpwlyYTDoGfASaHTKm5rkh182LDpkhNd8pD/bTk6BkQAyP5EYdxvdaeykXl5TMTTwQlb6m7Z+hA7bxpl1z6DmgZPp9ODCmFNbFyDWLE6NiRJzxvTEldJ2S++DDgZ9KoUlMhVBhhaBp9/LU/1VK1iS3otEX9ZrAxiM5JpI3ia9oviiFWxKOKTRsNFutardo+pXCVGDjo1e9aNwLPHBHKewMbLyhS429hQdarFK3GOOTJLtBNd48vRRNjVVkNSWoY1wrny/ZpdT3tFyAvHDXSi7mhLGZTBA2cQ5UAK/V99t4ZJP1aGsuNzadcux1x8S8K9kZ2qzjUz+QeaFTTWCc2eVR9x5rgUw95J0lwHM1yTdgtwe9TaJLXzWjFwzv1Ep9ov8SrY49kQ8zps1a+RFfd4A4tltORPcEEwZJSVkbNis6tzFL1DpeGwbkwm+yaQNQLa1B+rqscz6rwib4yufaE5cd/w9L2jKyYYPFfBI2yJn9owDD0zKmnnlEtTy/mPrlpVSSGWnj0tcj5YG3DFumzP/OP5xqpkVlNUTGAAAAAElFTkSuQmCC">
+  </head>
+	
+<style>
+body {
+  font-family: Roboto, sans-serif;
+}
+
+.search-container {
+  text-align: left;
+}
+
+.search-container input,
+.search-container button {
+  display: inline-block;
+	
+}
+
+.search-container input {
+	font-size: 26px;
+}
+
+.button-container {
+  margin-top: 10px;
+}
+
+#search-input {
+	width: 99%;
+	height: 25px;
+}
+
+#notes {
+	width: 50%; 
+}
+
+hr {
+	color: #eee;
+}
+</style>
+
+<body>
+	<div class="search-container">
+		<input type="text" id="search-input" placeholder="Введите запрос">
+		<div class="button-container">
+			<span>Супермаркеты: </span><button type="button" onclick="goToSite('edadealSite')">Едадил</button>
+			<button type="button" onclick="goToSite('vkusvillSite')">ВкусВилл</button>
+			<button type="button" onclick="goToSite('europaSite')">Европа</button>
+			<button type="button" onclick="goToSite('kbSite')">К&Б</button>
+			<button type="button" onclick="goToSite('liniaSite')">Линия</button>
+			<button type="button" onclick="goToSite('magnitSite')">Магнит</button>
+			<button type="button" onclick="goToSite('perekrestokSite')">Перекрёсток</button>
+			<button type="button" onclick="goToSite('fixpriceSite')">Fix Price</button>
+			<span> |</span>
+			<button type="button" onclick="goToAll('Site')">Везде</button>
+			<hr>
+			<span>Продсклады:</span>
+			<button type="button" onclick="goToSite('dobrotsenPS')">Доброцен</button>
+			<button type="button" onclick="goToSite('mayakPS')">Маяк G</button>
+			<button type="button" onclick="goToSite('svetoforSOPS')">Светофор (Спутник-Оскол) </button>
+			<button type="button" onclick="goToSite('svetoforMebelnayaPS')">Светофор (Мебельная)</button>
+			<span> |</span>
+			<button type="button" onclick="goToAll('PS')">Везде</button>
+			<hr>
+			<span>Маркетплейсы:</span>
+			<button type="button" onclick="goToSite('ozonMP')">Ozon</button>
+			<button type="button" onclick="goToSite('wildberriesMP')">Wildberries</button>
+			<button type="button" onclick="goToSite('sberMP')">СберМегаМаркет</button>
+			<button type="button" onclick="goToSite('yandexMP')">Яндекс.Маркет</button>
+			<span> |</span>
+			<button type="button" onclick="goToAll('MP')">Везде</button>
+			<hr>
+			<span>Перекрёсток DC: </span>
+			<button type="button" onclick="goToSite('perekrestokDubravaDC')">Дубрава</button>
+			<button type="button" onclick="goToSite('perekrestokLeninaDC')">Ленина</button>
+			<span> |</span>
+			<button type="button" onclick="goToSite('perekrestokDubravaDC'); goToSite('perekrestokLeninaDC')">Везде</button>
+			<br>
+			<hr>
+			<span>Магнит DC:</span>
+			<button type="button" onclick="goToSite('magnitDCLebedinets')">Лебединец 5</sup></button>
+			<button type="button" onclick="goToSite('magnitDCLenina')">Ленина 67/9</sup></button>
+			<button type="button" onclick="goToSite('magnitDCSeverniy')">Северный 45</sup></button>
+			<button type="button" onclick="goToSite('magnitDCParkoviy')">Парковый 22</sup></button>
+			<button type="button" onclick="goToSite('magnitDCDA')">Дмитрия Акинина 1</sup></button>
+			<span> |</span>
+			<button type="button" onclick="goToAll('magnitDC')">Везде</sup></button>
+			<br>
+			<hr>
+			<span>Пятёрочка DC: </span>
+			<button type="button" onclick="goToSite('PyaterochkaBogatyrskaya')">Богатырская 2</sup></button>
+			<button type="button" onclick="goToSite('PyaterochkaHmeleva')">Хмелёва 63/1</sup></button>
+			<button type="button" onclick="goToSite('PyaterochkaMakarenko')">Макаренко 38</sup></button>
+			<button type="button" onclick="goToSite('PyaterochkaOlimpiysky')">Олимпийский 55</sup></button>
+			<button type="button" onclick="goToSite('PyaterochkaSeverny')">Северный 7</sup></button>
+			<button type="button" onclick="goToSite('PyaterochkaStadionnaya')">Стадионная 9</sup></button>
+			<button type="button" onclick="goToSite('PyaterochkaStalevarov')">Сталеваров 31</sup></button>
+			<button type="button" onclick="goToSite('PyaterochkaSverdlova')">Свердлова 4</sup></button>
+			<button type="button" onclick="goToSite('PyaterochkaVesenniy')">Весенний 6А</sup></button>
+			<button type="button" onclick="goToSite('PyaterochkaVostochniy18')">Восточный 18</sup></button>
+			<button type="button" onclick="goToSite('PyaterochkaVostochniy27')">Восточный 27</sup></button>
+			<button type="button" onclick="goToSite('PyaterochkaZhukova29')">Жукова 29</sup></button>
+			<button type="button" onclick="goToSite('PyaterochkaZhukova37')">Жукова 37</sup></button>
+			<span> |</span>
+			<button type="button" onclick="goToAll('Pyaterochka')">Везде</sup></button>
+			<br>
+			<hr>
+			<span>Белгород и Воронеж: </span>
+			<button type="button" onclick="goToSite('AuchanOutside')">Ашан</sup></button>
+			<button type="button" onclick="goToSite('LentaOutside')">Лента</sup></button>
+			<button type="button" onclick="goToSite('MetroOutside')">Metro</sup></button>
+			<button type="button" onclick="goToSite('OkeyOutside')">О'кей</sup></button>
+			<span> |</span>
+			<button type="button" onclick="goToAll('Outside')">Везде</sup></button>
+			<br>
+			<hr>
+			<span>Прочее: </span>
+			<button type="button" onclick="goToSite('Irecommend_Other')">Irecommend</sup></button>
+			<button type="button" onclick="goToSite('Otzovik_Other')">Отзовик</sup></button>
+			<button type="button" onclick="goToSite('RBC_Companies_Other')">РБК</sup></button>
+			<span> |</span>
+			<button type="button" onclick="goToAll('q')">Везде</sup></button>
+			<br>
+			<hr>
+			<span>Хозяйственные: </span>
+			<button type="button" onclick="goToSite('Galamart_Hoz')">Галамарт</sup></button>
+			<button type="button" onclick="goToSite('MagnitCosmetic_Hoz')">Магнит косметик</sup></button>
+			<button type="button" onclick="goToSite('Poryadok_Hoz')">Порядок</sup></button>
+			<span> |</span>
+			<button type="button" onclick="goToAll('Hoz')">Везде</sup></button>
+			<hr>
+    <textarea id="notes" placeholder="Место для заметок"></textarea>
+		<br>
+    <button onclick="saveNote()">Сохранить</button>
+		<button onclick="invertButton()">Тёмная тема</button>
+		</div>
+		<hr>
+		<span>Новости 2023: </span>
+		<br>
+		<span>11 мая. Добавленные хозяйственные мгазины.</span>
+		<br>
+		<span>9 мая. Немного переписан код. Добавлены кнопки для поиска отзывов/производителей.</span>
+		<br>
+		<span>5 мая. Добавлены магазины Белгорода и Воронежа.</span>
+		<br>
+		<span>4 мая. Заработали кнопки «Везде». Сохраненные заметки теперь показываются из cookies. Работает GET-параметр search. Добавлена примитивная тёмная тема. Добавлена иконка сайта. Поисковый запрос отображается в названии сайта.</span>
+		<br>
+		<br>
+		<span>Адреса Магнитов из сайта: </span>
+		<span>	Старый Оскол Королева 7А — сайт
+	Старый Оскол Конева 13 — сайт 
+	Старый Оскол Юбилейный 4А — сайт
+	Старый Оскол Восточный 33 — сайт
+	Старый Оскол Ленина 30 — сайт 
+	Старый Оскол Молодогвардеец 11Б — сайт</span>
+	</div>
+</body>
+
+<script>
+const URLs = {
+	//Официальные сайты продуктовых магазинов
+	edadealSite: "https://edadeal.ru/staryi-oskol/offers?q=",
+	europaSite: "https://europa-market.ru/search?q=",
+	fixpriceSite: "https://fix-price.com/search?q=",
+	kbSite: "https://krasnoeibeloe.ru/catalog/?q=",
+	liniaSite: "https://linia-market.ru/catalog?search-word=",
+	magnitSite: "https://dostavka.magnit.ru/express/search?q=",
+	perekrestokSite: "https://www.perekrestok.ru/cat/search?search=",
+	vkusvillSite: "https://bel.vkusvill.ru/search/?q=",
+	//Продсклады
+	dobrotsenPS: "https://dobrotsen.ru/search/index.php?q=",
+	mayakPS: "https://www.google.com/search?q=site:stariy-oskol.magazinmayak.ru+",
+	svetoforSOPS: "https://soskol-ug.svetoforonline.ru/catalog/search/",
+	svetoforMebelnayaPS: "https://st-oskol-meb.svetoforonline.ru/catalog/search/",
+	//Маркетплейсы
+	ozonMP: "https://www.ozon.ru/search/?text=",
+	sberMP: "https://sbermegamarket.ru/catalog/?q=",
+	wildberriesMP: "https://www.wildberries.ru/catalog/0/search.aspx?search=",
+	yandexMP: "https://market.yandex.ru/search?allowCollapsing=1&local-offers-first=0&at-beru-warehouse=1&text=",
+	//Перекрёстки в Delivery Club
+	perekrestokDubravaDC: "https://www.delivery-club.ru/retail/perekrestok/search?placeSlug=perekrestok_yrvlz&query=",
+	perekrestokLeninaDC: "https://www.delivery-club.ru/retail/perekrestok/search?placeSlug=perekrestok_dhref&query=",
+	//Магниты в Delivery Club
+	magnitDCDA: "https://www.delivery-club.ru/retail/magnit_celevaya/search?placeSlug=magnit_celevaya_nhf4c&query=",
+	magnitDCLebedinets: "https://www.delivery-club.ru/retail/magnit_celevaya/search?placeSlug=magnit_celevaya_kz8j5&query=",
+	magnitDCLenina: "https://www.delivery-club.ru/retail/magnit_celevaya/search?placeSlug=magnit_celevaya_vd5p8&query=",
+	magnitDCParkoviy: "https://www.delivery-club.ru/retail/magnit_celevaya/search?placeSlug=magnit_celevaya_qpn3v&query=",
+	magnitDCSeverniy: "https://www.delivery-club.ru/retail/magnit_celevaya/search?placeSlug=magnit_celevaya_z3xnd&query=",
+	//Пятёрочки в Delivery Club
+	PyaterochkaBogatyrskaya: "https://www.delivery-club.ru/retail/paterocka/search?placeSlug=pyaterochka_sglkj&query=",
+	PyaterochkaHmeleva: "https://www.delivery-club.ru/retail/paterocka/search?placeSlug=pyaterochka_dwven&query=",
+	PyaterochkaMakarenko: "https://www.delivery-club.ru/retail/paterocka/search?placeSlug=pyaterochka_ybrfm&query=",
+	PyaterochkaOlimpiysky: "https://www.delivery-club.ru/retail/paterocka/search?placeSlug=pyaterochka_youeq&query=",
+	PyaterochkaSeverny: "https://www.delivery-club.ru/retail/paterocka/search?placeSlug=pyaterochka_asykm&query=",
+	PyaterochkaStadionnaya: "https://www.delivery-club.ru/retail/paterocka/search?placeSlug=pyaterochka_fwzpy&query=",
+	PyaterochkaStalevarov: "https://www.delivery-club.ru/retail/paterocka/search?placeSlug=pyaterochka_iedrn&query=",
+	PyaterochkaSverdlova: "https://www.delivery-club.ru/retail/paterocka/search?placeSlug=pyaterochka_pdqzm&query=",
+	PyaterochkaVesenniy: "https://www.delivery-club.ru/retail/paterocka/search?placeSlug=pyaterochka_nklds&query=",
+	PyaterochkaVostochniy18: "https://www.delivery-club.ru/retail/paterocka/search?placeSlug=pyaterochka_bfizx&query=",
+	PyaterochkaVostochniy27: "https://www.delivery-club.ru/retail/paterocka/search?placeSlug=pyaterochka_xpmqi&query=",
+	PyaterochkaZhukova29: "https://www.delivery-club.ru/retail/paterocka/search?placeSlug=pyaterochka_mrdjc&query=",
+	PyaterochkaZhukova37: "https://www.delivery-club.ru/retail/paterocka/search?placeSlug=pyaterochka_nmeqg&query=",
+	//Белгород и Воронеж
+	AuchanOutside: "https://www.auchan.ru/?digiSearch=true&params=%7Csort%3DDEFAULT&term=",
+	LentaOutside: "https://lenta.com/search/?searchText=",
+	MetroOutside: "https://online.metro-cc.ru/search?q=",
+	OkeyOutside: "https://www.okmarket.ru/search/?category=products&query=",
+	//Отзывы/ПП
+	Irecommend_Other: "https://irecommend.ru/srch?query=",
+	Otzovik_Other: "https://otzovik.com/?search_text=",
+	RBC_Companies_Other: "https://companies.rbc.ru/search/trademarks/?query=",
+	//Хозмаги
+	Galamart_Hoz: "https://galamart.ru/search/?query=",
+	MagnitCosmetic_Hoz: "https://magnitcosmetic.ru/search/?q=",
+	Poryadok_Hoz: "https://poryadok.ru/search/?q=",
+};
+
+function errorWindow(name) {
+	if (name == "empty") {
+		alert("Пустой запрос");
+	}
+	if (name == "disabled") {
+		alert("Функция временно недоуступна");
+	}
+}
+
+function goToSite(name) {
+	userInput = document.getElementById("search-input").value;
+	history.pushState(null, null, window.location.hostname + '?q=' + userInput);
+	document.title = "Поиск по магазинам: " + userInput;
+  if (userInput.trim() !== "") {window.open(URLs[name] + userInput, "_blank");}
+	else {errorWindow("empty");}
+}
+
+function goToAll(name) {
+	const filteredKeys = Object.keys(URLs).filter(key => key.includes(name));
+
+	for (let i = 0; i < filteredKeys.length; i++) {
+		goToSite(filteredKeys[i]);
+	}
+}
+
+
+function loadNote() {
+  const savedNote = decodeURIComponent(document.cookie.replace(/(?:(?:^|.*;\s*)note\s*\=\s*([^;]*).*$)|^.*$/, "$1"));
+  const notesTextarea = document.getElementById("notes");
+  notesTextarea.value = savedNote;
+}
+
+loadNote(); // Загрузка сохраненной заметки при загрузке страницы
+
+function saveNote() {
+  const note = document.getElementById("notes").value;
+  document.cookie = "note=" + encodeURIComponent(note);
+  alert("Заметка сохранена в куки!");
+}
+
+//Параметры в URL
+const searchParams = new URLSearchParams(window.location.search);
+const searchQuery = searchParams.get("search");
+const searchInput = document.getElementById("search-input");
+searchInput.value = searchQuery;
+
+//Тёмная тема
+function invertButton() {
+  document.body.style.background = "black";
+  document.body.style.color = "white";
+}
+</script>
+</html>
